@@ -7,7 +7,7 @@
     <title>Educador RCP - Aprende a Salvar Vidas</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1.8">
+    <link rel="stylesheet" href="css/style.css?v=1.9">
 </head>
 
 <body>
@@ -287,20 +287,20 @@
             <div class="mermaid-container">
                 <h3>Esquema Visual</h3>
                 <div class="mermaid">
-                    flowchart TD
-                    A[Responde?] -->|NO| B[Grita Ayuda y Abre Via Aerea]
-                    B --> C[Respira Normal?]
-                    C -->|SI| D[Posicion Lateral Seguridad]
+                    graph TD
+                    A[Responde] -->|NO| B[Grita Ayuda]
+                    B --> C[Respira Normal]
+                    C -->|SI| D[Posicion Seguridad]
                     C -->|NO| E[LLAMA 112]
-                    E --> F[RCP 30:2]
-                    F --> G[Usar DEA si hay]
-                    style A fill:#ffecb3,stroke:#ffa000,stroke-width:2px
-                    style B fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
-                    style C fill:#ffecb3,stroke:#ffa000,stroke-width:2px
-                    style D fill:#c8e6c9,stroke:#4caf50,stroke-width:2px
-                    style E fill:#ffcdd2,stroke:#f44336,stroke-width:2px
-                    style F fill:#ffcdd2,stroke:#f44336,stroke-width:2px
-                    style G fill:#e1bee7,stroke:#9c27b0,stroke-width:2px
+                    E --> F[Inicia RCP]
+                    F --> G[Usar DEA]
+                    style A fill:#ffecb3,stroke:#ffa000
+                    style B fill:#e3f2fd,stroke:#2196f3
+                    style C fill:#ffecb3,stroke:#ffa000
+                    style D fill:#c8e6c9,stroke:#4caf50
+                    style E fill:#ffcdd2,stroke:#f44336
+                    style F fill:#ffcdd2,stroke:#f44336
+                    style G fill:#e1bee7,stroke:#9c27b0
                 </div>
             </div>
 
@@ -383,18 +383,19 @@
                         <p>El <strong>Desfibrilador Externo Automático (DEA)</strong> analiza el ritmo cardíaco y aplica
                             una descarga si es necesario.</p>
                         <div class="mermaid">
-                            flowchart TD
-                            Start[Enciendelo] --> Patch[Coloca Parches]
-                            Patch --> Away[Alejate - Analizando]
-                            Away --> Check{Descarga?}
-                            Check -->|SI| Shock[Pulsa Boton]
-                            Check -->|NO| CPR[Sigue RCP]
-                            Shock --> CPR
-                            style Start fill:#e8f5e9,stroke:#4caf50
-                            style Patch fill:#fff3e0,stroke:#ff9800
-                            style Away fill:#ffebee,stroke:#f44336
-                            style Shock fill:#fff176,stroke:#fbc02d
-                            style CPR fill:#e3f2fd,stroke:#2196f3
+                            graph TD
+                            A[Encender] --> B[Colocar Parches]
+                            B --> C[Alejarse]
+                            C --> D{Descarga}
+                            D -->|SI| E[Pulsar Boton]
+                            D -->|NO| F[Seguir RCP]
+                            E --> F
+                            style A fill:#e8f5e9,stroke:#4caf50
+                            style B fill:#fff3e0,stroke:#ff9800
+                            style C fill:#ffebee,stroke:#f44336
+                            style D fill:#fff9c4,stroke:#fbc02d
+                            style E fill:#fff176,stroke:#fbc02d
+                            style F fill:#e3f2fd,stroke:#2196f3
                         </div>
                     </div>
 
@@ -402,14 +403,13 @@
                         <div class="resource-icon">🎓</div>
                         <h3>Recuerda</h3>
                         <div class="mermaid">
-                            flowchart LR
-                            Root[RCP Basico]
-                            Root --> A[Llama al 112]
-                            Root --> B[Usa el DEA]
+                            graph LR
+                            Root[RCP Basico] --> A[Llama 112]
+                            Root --> B[Usa DEA]
                             Root --> C[Sin Miedo]
                             Root --> D[Practica]
-                            Root --> E[Ensena a otros]
-                            style Root fill:#e3f2fd,stroke:#2196f3,stroke-width:3px
+                            Root --> E[Ensena]
+                            style Root fill:#e3f2fd,stroke:#2196f3
                             style A fill:#c8e6c9,stroke:#4caf50
                             style B fill:#fff3e0,stroke:#ff9800
                             style C fill:#ffecb3,stroke:#ffa000
@@ -716,7 +716,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({ startOnLoad: true });</script>
-    <script src="js/script.js?v=1.8"></script>
+    <script src="js/script.js?v=1.9"></script>
 </body>
 
 </html>
