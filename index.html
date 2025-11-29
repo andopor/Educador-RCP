@@ -7,7 +7,7 @@
     <title>Educador RCP - Aprende a Salvar Vidas</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1.7">
+    <link rel="stylesheet" href="css/style.css?v=1.8">
 </head>
 
 <body>
@@ -287,13 +287,13 @@
             <div class="mermaid-container">
                 <h3>Esquema Visual</h3>
                 <div class="mermaid">
-                    graph TD
-                    A["¿Responde?"] -->|NO| B["Grita Ayuda / Abre Vía Aérea"]
-                    B --> C["¿Respira Normal?"]
-                    C -->|SI| D["Posición Lateral Seguridad"]
-                    C -->|NO| E["LLAMA 112"]
-                    E --> F["RCP 30:2"]
-                    F --> G["Usar DEA si hay"]
+                    flowchart TD
+                    A[Responde?] -->|NO| B[Grita Ayuda y Abre Via Aerea]
+                    B --> C[Respira Normal?]
+                    C -->|SI| D[Posicion Lateral Seguridad]
+                    C -->|NO| E[LLAMA 112]
+                    E --> F[RCP 30:2]
+                    F --> G[Usar DEA si hay]
                     style A fill:#ffecb3,stroke:#ffa000,stroke-width:2px
                     style B fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
                     style C fill:#ffecb3,stroke:#ffa000,stroke-width:2px
@@ -383,12 +383,12 @@
                         <p>El <strong>Desfibrilador Externo Automático (DEA)</strong> analiza el ritmo cardíaco y aplica
                             una descarga si es necesario.</p>
                         <div class="mermaid">
-                            graph TD
-                            Start("🟢 Enciéndelo") --> Patch("🩹 Coloca Parches")
-                            Patch --> Away("🚫 Aléjate (Analizando)")
-                            Away --> Check{"¿Descarga?"}
-                            Check -->|SI| Shock("⚡ Pulsa Botón")
-                            Check -->|NO| CPR("🫀 Sigue RCP")
+                            flowchart TD
+                            Start[Enciendelo] --> Patch[Coloca Parches]
+                            Patch --> Away[Alejate - Analizando]
+                            Away --> Check{Descarga?}
+                            Check -->|SI| Shock[Pulsa Boton]
+                            Check -->|NO| CPR[Sigue RCP]
                             Shock --> CPR
                             style Start fill:#e8f5e9,stroke:#4caf50
                             style Patch fill:#fff3e0,stroke:#ff9800
@@ -402,14 +402,19 @@
                         <div class="resource-icon">🎓</div>
                         <h3>Recuerda</h3>
                         <div class="mermaid">
-                            mindmap
-                            root((RCP Básico))
-                            112(Llama al 112)
-                            DEA(Usa el DEA)
-                            Miedo(Sin Miedo)
-                            Mejor hacer algo
-                            Practica(Practica)
-                            Enseña(Enseña a otros)
+                            flowchart LR
+                            Root[RCP Basico]
+                            Root --> A[Llama al 112]
+                            Root --> B[Usa el DEA]
+                            Root --> C[Sin Miedo]
+                            Root --> D[Practica]
+                            Root --> E[Ensena a otros]
+                            style Root fill:#e3f2fd,stroke:#2196f3,stroke-width:3px
+                            style A fill:#c8e6c9,stroke:#4caf50
+                            style B fill:#fff3e0,stroke:#ff9800
+                            style C fill:#ffecb3,stroke:#ffa000
+                            style D fill:#e1bee7,stroke:#9c27b0
+                            style E fill:#ffcdd2,stroke:#f44336
                         </div>
                     </div>
                 </div>
@@ -711,7 +716,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({ startOnLoad: true });</script>
-    <script src="js/script.js?v=1.7"></script>
+    <script src="js/script.js?v=1.8"></script>
 </body>
 
 </html>
