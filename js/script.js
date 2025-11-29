@@ -78,18 +78,42 @@ window.calculateScore = function (tableId, resultId) {
 };
 
 // Text-to-Speech Logic
-window.readText = function (elementId) {
+let currentUtterance = null;
+let currentButton = null;
+
+window.readText = function (elementId, btnElement) {
     const text = document.getElementById(elementId).innerText;
 
     if ('speechSynthesis' in window) {
-        // Cancel any ongoing speech
+        // If speaking the same text, stop it
+        if (window.speechSynthesis.speaking && currentButton === btnElement) {
+            window.speechSynthesis.cancel();
+            btnElement.textContent = "🔊 Escuchar";
+            currentButton = null;
+            return;
+        }
+
+        // Cancel any other ongoing speech
         window.speechSynthesis.cancel();
 
+        // Reset previous button if exists
+        if (currentButton) {
+            currentButton.textContent = "🔊 Escuchar";
+        }
+
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'es-ES'; // Spanish
-        utterance.rate = 0.9; // Slightly slower for clarity
+        utterance.lang = 'es-ES';
+        utterance.rate = 0.9;
         utterance.pitch = 1;
 
+        // When finished, reset button
+        utterance.onend = function () {
+            btnElement.textContent = "🔊 Escuchar";
+            currentButton = null;
+        };
+
+        currentButton = btnElement;
+        btnElement.textContent = "⏹ Detener";
         window.speechSynthesis.speak(utterance);
     } else {
         alert("Lo siento, tu navegador no soporta la lectura de texto.");

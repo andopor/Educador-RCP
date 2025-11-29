@@ -7,7 +7,7 @@
     <title>Educador RCP - Aprende a Salvar Vidas</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1.2">
+    <link rel="stylesheet" href="css/style.css?v=1.3">
 </head>
 
 <body>
@@ -74,7 +74,7 @@
 
             <div class="grid">
                 <div class="story-card">
-                    <button class="btn-speak" onclick="readText('story-1')">🔊</button>
+                    <button class="btn-speak" onclick="readText('story-1', this)">🔊 Escuchar</button>
                     <div id="story-1">
                         <div class="story-img" style="background-color: #ffadad;">⚽</div>
                         <h3>El partido decisivo</h3>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="story-card">
-                    <button class="btn-speak" onclick="readText('story-2')">🔊</button>
+                    <button class="btn-speak" onclick="readText('story-2', this)">🔊 Escuchar</button>
                     <div id="story-2">
                         <div class="story-img" style="background-color: #ffd6a5;">🏠</div>
                         <h3>Un domingo en casa</h3>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="story-card">
-                    <button class="btn-speak" onclick="readText('story-3')">🔊</button>
+                    <button class="btn-speak" onclick="readText('story-3', this)">🔊 Escuchar</button>
                     <div id="story-3">
                         <div class="story-img" style="background-color: #fdffb6;">🛍️</div>
                         <h3>En el centro comercial</h3>
@@ -127,7 +127,7 @@
                         <h3>ROTEGER</h3>
                     </div>
                     <div class="pas-content">
-                        <button class="btn-speak" onclick="readText('pas-p')">🔊 Escuchar</button>
+                        <button class="btn-speak" onclick="readText('pas-p', this)">🔊 Escuchar</button>
                         <div id="pas-p">
                             <p>Antes de actuar, asegúrate de que <strong>tú no corres peligro</strong>.</p>
                             <ul>
@@ -145,7 +145,7 @@
                         <h3>VISAR</h3>
                     </div>
                     <div class="pas-content">
-                        <button class="btn-speak" onclick="readText('pas-a')">🔊 Escuchar</button>
+                        <button class="btn-speak" onclick="readText('pas-a', this)">🔊 Escuchar</button>
                         <div id="pas-a">
                             <p>Llama inmediatamente al <strong>112</strong>. Mantén la calma y di:</p>
                             <ul>
@@ -163,7 +163,7 @@
                         <h3>OCORRER</h3>
                     </div>
                     <div class="pas-content">
-                        <button class="btn-speak" onclick="readText('pas-s')">🔊 Escuchar</button>
+                        <button class="btn-speak" onclick="readText('pas-s', this)">🔊 Escuchar</button>
                         <div id="pas-s">
                             <p>Es hora de actuar. Si la víctima no respira, inicia la RCP.</p>
                             <ul>
@@ -526,7 +526,7 @@
 
     </main>
 
-    <script src="js/script.js?v=1.2"></script>
+    <script src="js/script.js?v=1.3"></script>
 </body>
 
 </html>
