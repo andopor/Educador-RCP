@@ -163,42 +163,73 @@
         </section>
 
         <!-- ALGORITMO VISUAL -->
+        <!-- ALGORITMO VISUAL INTERACTIVO -->
         <section id="algoritmo">
             <h2>Algoritmo de Actuación</h2>
-            <p class="section-desc">Sigue este diagrama mental para tomar decisiones rápidas.</p>
+            <p class="section-desc">Responde a las preguntas para saber qué hacer en cada momento.</p>
 
             <div class="algorithm-flow">
-                <div class="algo-box start">¿La víctima responde?</div>
-                <div class="algo-arrow">⬇️</div>
 
-                <div class="algo-split">
-                    <div class="algo-branch">
-                        <div class="algo-line">SÍ</div>
-                        <div class="algo-box safe">Déjala como está <br> Busca lesiones <br> Llama al 112 si es
-                            necesario</div>
-                    </div>
-                    <div class="algo-branch">
-                        <div class="algo-line">NO</div>
-                        <div class="algo-box warning">Grita pidiendo ayuda <br> Abre la vía aérea <br> ¿Respira
-                            normalmente?</div>
-                        <div class="algo-arrow">⬇️</div>
-
-                        <div class="algo-split-inner">
-                            <div class="algo-branch-inner">
-                                <div class="algo-line">SÍ</div>
-                                <div class="algo-box safe">Posición Lateral de Seguridad (PLS) <br> Llama al 112</div>
-                            </div>
-                            <div class="algo-branch-inner">
-                                <div class="algo-line">NO</div>
-                                <div class="algo-box danger">
-                                    <strong>LLAMA AL 112</strong><br>
-                                    Inicia RCP 30:2<br>
-                                    (Si hay DEA, úsalo)
-                                </div>
-                            </div>
-                        </div>
+                <!-- Step 1 -->
+                <div id="step-1" class="algo-step">
+                    <div class="algo-box start">¿La víctima responde?</div>
+                    <p style="margin: 1rem 0; color: #666;">(Sacude sus hombros y háblale alto)</p>
+                    <div class="algo-split">
+                        <button class="btn-cta" onclick="nextStep('step-1', 'step-safe-1')">SÍ, responde</button>
+                        <button class="btn-cta btn-secondary" onclick="nextStep('step-1', 'step-2')">NO
+                            responde</button>
                     </div>
                 </div>
+
+                <!-- Branch: Safe 1 -->
+                <div id="step-safe-1" class="algo-step" style="display:none;">
+                    <div class="algo-box safe">
+                        ✅ <strong>Todo va bien</strong><br>
+                        Déjala como está.<br>
+                        Busca lesiones.<br>
+                        Llama al 112 si es necesario.
+                    </div>
+                    <button class="btn-back" style="margin-top: 20px;" onclick="resetAlgorithm()">🔄 Empezar de
+                        nuevo</button>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="step-2" class="algo-step" style="display:none;">
+                    <div class="algo-box warning">⚠️ ¡Peligro!</div>
+                    <p>1. Grita pidiendo ayuda.<br>2. Abre la vía aérea (frente-mentón).</p>
+                    <div class="algo-box start">¿Respira con normalidad?</div>
+                    <p style="margin: 1rem 0; color: #666;">(Ver, Oír, Sentir durante 10 seg)</p>
+                    <div class="algo-split">
+                        <button class="btn-cta" onclick="nextStep('step-2', 'step-safe-2')">SÍ, respira</button>
+                        <button class="btn-cta btn-secondary" onclick="nextStep('step-2', 'step-danger')">NO
+                            respira</button>
+                    </div>
+                </div>
+
+                <!-- Branch: Safe 2 -->
+                <div id="step-safe-2" class="algo-step" style="display:none;">
+                    <div class="algo-box safe">
+                        ✅ <strong>Respira, pero está inconsciente</strong><br>
+                        1. Colócala en Posición Lateral de Seguridad (PLS).<br>
+                        2. Llama al 112.<br>
+                        3. Vigila que siga respirando.
+                    </div>
+                    <button class="btn-back" style="margin-top: 20px;" onclick="resetAlgorithm()">🔄 Empezar de
+                        nuevo</button>
+                </div>
+
+                <!-- Branch: Danger -->
+                <div id="step-danger" class="algo-step" style="display:none;">
+                    <div class="algo-box danger">
+                        🚨 <strong>PARADA CARDIORRESPIRATORIA</strong><br>
+                        1. ¡LLAMA AL 112 YA!<br>
+                        2. Inicia RCP inmediatamente (30 compresiones : 2 ventilaciones).<br>
+                        3. Si hay un DEA, úsalo.
+                    </div>
+                    <button class="btn-back" style="margin-top: 20px;" onclick="resetAlgorithm()">🔄 Empezar de
+                        nuevo</button>
+                </div>
+
             </div>
         </section>
 
