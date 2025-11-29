@@ -19,7 +19,9 @@
         <nav>
             <ul>
                 <li><a href="#home" class="active">Inicio</a></li>
-                <li><a href="#formacion">Formación</a></li>
+                <li><a href="#historias">Historias</a></li>
+                <li><a href="#teoria">Teoría</a></li>
+                <li><a href="#algoritmo">Algoritmo</a></li>
                 <li><a href="#evaluacion">Evaluación</a></li>
             </ul>
         </nav>
@@ -29,112 +31,194 @@
         <!-- HOME SECTION -->
         <section id="home" class="active">
             <div class="hero">
-                <h1>¡Tú puedes salvar una vida!</h1>
-                <p>Aprende las técnicas básicas de Reanimación Cardiopulmonar (RCP) y conviértete en un héroe cotidiano.
-                </p>
-                <a href="#formacion" class="btn-cta"
-                    onclick="document.querySelector('a[href=\'#formacion\']').click()">Comenzar Entrenamiento</a>
+                <h1>¡Tú tienes el poder de salvar una vida!</h1>
+                <p>En una parada cardíaca, cada segundo cuenta. El cerebro empieza a sufrir daños irreversibles en tan
+                    solo <strong>4 minutos</strong> sin oxígeno. Tú eres el primer eslabón de la cadena de
+                    supervivencia.</p>
+                <div class="hero-buttons">
+                    <a href="#teoria" class="btn-cta" onclick="navigateTo('teoria')">Aprender Ahora</a>
+                    <a href="#evaluacion" class="btn-cta btn-secondary" onclick="navigateTo('evaluacion')">Ya sé RCP</a>
+                </div>
             </div>
 
-            <div class="grid">
-                <div class="card" onclick="document.querySelector('a[href=\'#formacion\']').click()">
-                    <div class="card-icon">📚</div>
-                    <h3>Aprende</h3>
-                    <p>Descubre el protocolo PAS y cómo actuar en una emergencia.</p>
-                </div>
-                <div class="card" onclick="document.querySelector('a[href=\'#evaluacion\']').click()">
-                    <div class="card-icon">✅</div>
-                    <h3>Evalúate</h3>
-                    <p>Pon a prueba tus conocimientos con nuestros tests interactivos.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⏱️</div>
-                    <h3>Practica</h3>
-                    <p>Usa nuestro metrónomo para mantener el ritmo perfecto.</p>
+            <div class="chain-container">
+                <h2>La Cadena de Supervivencia</h2>
+                <div class="chain-grid">
+                    <div class="chain-link">
+                        <div class="icon">📞</div>
+                        <p>1. Reconocimiento y Alerta Precoz (112)</p>
+                    </div>
+                    <div class="chain-arrow">➜</div>
+                    <div class="chain-link">
+                        <div class="icon">👐</div>
+                        <p>2. RCP Precoz (Tus manos)</p>
+                    </div>
+                    <div class="chain-arrow">➜</div>
+                    <div class="chain-link">
+                        <div class="icon">⚡</div>
+                        <p>3. Desfibrilación Precoz (DEA)</p>
+                    </div>
+                    <div class="chain-arrow">➜</div>
+                    <div class="chain-link">
+                        <div class="icon">🏥</div>
+                        <p>4. Soporte Vital Avanzado</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- FORMACION SECTION -->
-        <section id="formacion">
-            <h2>Protocolo de Actuación</h2>
-            <p style="margin-bottom: 2rem;">Sigue estos pasos ante una emergencia. Recuerda: <strong>Proteger, Avisar,
-                    Socorrer (PAS)</strong>.</p>
+        <!-- HISTORIAS REALES -->
+        <section id="historias">
+            <h2>Héroes como tú</h2>
+            <p class="section-desc">Estas son historias inspiradas en casos reales de jóvenes que actuaron a tiempo.</p>
 
-            <div class="step-container">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Comprobar Consciencia</h3>
-                        <p>Acércate con seguridad. Sacude suavemente los hombros de la víctima y pregúntale en voz alta:
-                            <strong>"¿Estás bien?"</strong>.</p>
+            <div class="grid">
+                <div class="story-card">
+                    <div class="story-img" style="background-color: #ffadad;">⚽</div>
+                    <h3>El partido decisivo</h3>
+                    <p>"Estábamos jugando la final del torneo escolar cuando Álex se desplomó. Todos pensaron que era un
+                        mareo, pero yo vi que no respiraba. Recordé lo que aprendimos en clase: llamé al 112 y empecé a
+                        comprimir. Álex hoy sigue jugando con nosotros."</p>
+                    <span class="author">- Marcos, 15 años</span>
+                </div>
+                <div class="story-card">
+                    <div class="story-img" style="background-color: #ffd6a5;">🏠</div>
+                    <h3>Un domingo en casa</h3>
+                    <p>"Mi abuelo estaba viendo la tele y de repente dejó de responder. Me asusté mucho, pero sabía que
+                        no podía quedarme quieta. Grité a mi madre para que llamara a emergencias mientras yo le hacía
+                        el masaje cardíaco. Los médicos dijeron que mis manos fueron su corazón durante 10 minutos."</p>
+                    <span class="author">- Lucía, 14 años</span>
+                </div>
+                <div class="story-card">
+                    <div class="story-img" style="background-color: #fdffb6;">🛍️</div>
+                    <h3>En el centro comercial</h3>
+                    <p>"Un señor se cayó al suelo en la cola del cine. La gente miraba y grababa con el móvil, pero
+                        nadie hacía nada. Me acerqué, vi que no respiraba y empecé la RCP. Fue agotador, pero cuando
+                        llegó la ambulancia, su corazón volvió a latir."</p>
+                    <span class="author">- Javier, 16 años</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEORIA PAS -->
+        <section id="teoria">
+            <h2>El Protocolo P.A.S.</h2>
+            <p class="section-desc">Ante cualquier emergencia, mantén la calma y sigue estos tres pasos fundamentales.
+            </p>
+
+            <div class="pas-container">
+                <div class="pas-step protect">
+                    <div class="pas-header">
+                        <span class="letter">P</span>
+                        <h3>ROTEGER</h3>
+                    </div>
+                    <div class="pas-content">
+                        <p>Antes de actuar, asegúrate de que <strong>tú no corres peligro</strong>.</p>
+                        <ul>
+                            <li>¿Hay tráfico? ¿Fuego? ¿Electricidad?</li>
+                            <li>Si el entorno no es seguro, no te acerques.</li>
+                            <li>Señaliza el lugar para evitar más accidentes.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Abrir Vía Aérea</h3>
-                        <p>Si no responde, realiza la maniobra <strong>frente-mentón</strong>: pon una mano en la frente
-                            y dos dedos en la barbilla para echar la cabeza hacia atrás.</p>
+                <div class="pas-step alert">
+                    <div class="pas-header">
+                        <span class="letter">A</span>
+                        <h3>VISAR</h3>
+                    </div>
+                    <div class="pas-content">
+                        <p>Llama inmediatamente al <strong>112</strong>. Mantén la calma y di:</p>
+                        <ul>
+                            <li><strong>QUÉ</strong> pasa: "Hay una persona inconsciente que no respira".</li>
+                            <li><strong>DÓNDE</strong> estás: Dirección exacta o puntos de referencia.</li>
+                            <li><strong>QUIÉN</strong> eres: Da tu nombre y no cuelgues hasta que te lo digan.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Comprobar Respiración (VOS)</h3>
-                        <p>Acerca tu oído a su boca y mira su pecho. <strong>Ver, Oír y Sentir</strong> durante no más
-                            de 10 segundos.</p>
+                <div class="pas-step soccor">
+                    <div class="pas-header">
+                        <span class="letter">S</span>
+                        <h3>OCORRER</h3>
                     </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Llamar al 112</h3>
-                        <p>Si no respira, llama inmediatamente al <strong>112</strong> y di claramente: "Parada
-                            cardiorrespiratoria".</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Iniciar RCP</h3>
-                        <p>Comienza las compresiones torácicas. Centro del pecho, brazos rectos, fuerte y rápido.</p>
+                    <div class="pas-content">
+                        <p>Es hora de actuar. Si la víctima no respira, inicia la RCP.</p>
+                        <ul>
+                            <li><strong>30 Compresiones:</strong> Fuertes y rápidas (centro del pecho).</li>
+                            <li><strong>2 Insuflaciones:</strong> Tapa la nariz y sopla en la boca (opcional si no
+                                tienes entrenamiento o protección, en ese caso solo comprime).</li>
+                            <li>No pares hasta que llegue la ayuda o la víctima despierte.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="metronome-box">
-                <h3>Entrenador de Ritmo</h3>
-                <p>El ritmo ideal es entre 100 y 120 compresiones por minuto.</p>
+                <h3>Entrena tu Ritmo</h3>
+                <p>Necesitas hacer entre 100 y 120 compresiones por minuto. ¡Prueba ahora!</p>
                 <div id="heart-icon" class="heart-beat">❤️</div>
-                <button id="metro-btn" class="btn-cta">▶️ Iniciar Ritmo (110 BPM)</button>
+                <button id="metro-btn" class="btn-cta">▶️ Iniciar Metrónomo (110 BPM)</button>
+            </div>
+        </section>
+
+        <!-- ALGORITMO VISUAL -->
+        <section id="algoritmo">
+            <h2>Algoritmo de Actuación</h2>
+            <p class="section-desc">Sigue este diagrama mental para tomar decisiones rápidas.</p>
+
+            <div class="algorithm-flow">
+                <div class="algo-box start">¿La víctima responde?</div>
+                <div class="algo-arrow">⬇️</div>
+
+                <div class="algo-split">
+                    <div class="algo-branch">
+                        <div class="algo-line">SÍ</div>
+                        <div class="algo-box safe">Déjala como está <br> Busca lesiones <br> Llama al 112 si es
+                            necesario</div>
+                    </div>
+                    <div class="algo-branch">
+                        <div class="algo-line">NO</div>
+                        <div class="algo-box warning">Grita pidiendo ayuda <br> Abre la vía aérea <br> ¿Respira
+                            normalmente?</div>
+                        <div class="algo-arrow">⬇️</div>
+
+                        <div class="algo-split-inner">
+                            <div class="algo-branch-inner">
+                                <div class="algo-line">SÍ</div>
+                                <div class="algo-box safe">Posición Lateral de Seguridad (PLS) <br> Llama al 112</div>
+                            </div>
+                            <div class="algo-branch-inner">
+                                <div class="algo-line">NO</div>
+                                <div class="algo-box danger">
+                                    <strong>LLAMA AL 112</strong><br>
+                                    Inicia RCP 30:2<br>
+                                    (Si hay DEA, úsalo)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- EVALUACION MENU SECTION -->
         <section id="evaluacion">
             <h2>Zona de Evaluación</h2>
-            <p>Selecciona una prueba para demostrar tus conocimientos.</p>
+            <p class="section-desc">Demuestra lo que has aprendido.</p>
 
             <div class="grid">
-                <div class="card"
-                    onclick="document.querySelector('a[href=\'#test-tecnica\']').click(); document.getElementById('test-tecnica').classList.add('active'); document.getElementById('evaluacion').classList.remove('active');">
+                <div class="card" onclick="navigateTo('test-tecnica')">
                     <div class="card-icon">🤲</div>
                     <h3>Técnica de Compresiones</h3>
                     <p>Evalúa la posición de manos y cuerpo.</p>
                 </div>
-                <div class="card"
-                    onclick="document.querySelector('a[href=\'#test-adulto\']').click(); document.getElementById('test-adulto').classList.add('active'); document.getElementById('evaluacion').classList.remove('active');">
+                <div class="card" onclick="navigateTo('test-adulto')">
                     <div class="card-icon">👨</div>
                     <h3>RCP Adulto</h3>
                     <p>Protocolo completo para adultos.</p>
                 </div>
-                <div class="card"
-                    onclick="document.querySelector('a[href=\'#test-nino\']').click(); document.getElementById('test-nino').classList.add('active'); document.getElementById('evaluacion').classList.remove('active');">
+                <div class="card" onclick="navigateTo('test-nino')">
                     <div class="card-icon">🧒</div>
                     <h3>RCP Niño</h3>
                     <p>Protocolo específico para pediatría.</p>
@@ -144,17 +228,15 @@
 
         <!-- TEST: TECNICA -->
         <section id="test-tecnica">
-            <button class="btn-cta" style="padding: 10px 20px; font-size: 1rem; margin-bottom: 20px;"
-                onclick="document.querySelector('a[href=\'#evaluacion\']').click(); document.getElementById('evaluacion').classList.add('active'); document.getElementById('test-tecnica').classList.remove('active');">←
-                Volver</button>
+            <button class="btn-back" onclick="navigateTo('evaluacion')">← Volver</button>
             <h2>Evaluación: Técnica de Compresiones</h2>
 
             <table id="table-tecnica" class="eval-table">
                 <thead>
                     <tr>
                         <th>Criterio</th>
-                        <th style="width: 80px; text-align: center;">Sí</th>
-                        <th style="width: 80px; text-align: center;">No</th>
+                        <th class="th-center">Sí</th>
+                        <th class="th-center">No</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -163,18 +245,18 @@
                     </tr>
                     <tr>
                         <td>Talón de una mano en el centro del pecho</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Otra mano encima con dedos entrelazados</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Dedos no tocan el pecho</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
 
                     <tr>
@@ -182,13 +264,13 @@
                     </tr>
                     <tr>
                         <td>Hombros directamente sobre las manos (vertical)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Brazos rectos, sin doblar los codos</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
 
                     <tr>
@@ -196,40 +278,38 @@
                     </tr>
                     <tr>
                         <td>Profundidad de 5 cm</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Frecuencia de 100-120 cpm</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Permite reexpansión completa del pecho</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                 </tbody>
             </table>
 
-            <button class="btn-cta" style="width: 100%; margin-top: 2rem;"
-                onclick="calculateScore('table-tecnica', 'res-tecnica')">Calcular Nota</button>
+            <button class="btn-cta full-width" onclick="calculateScore('table-tecnica', 'res-tecnica')">Calcular
+                Nota</button>
             <div id="res-tecnica" class="result-display"></div>
         </section>
 
         <!-- TEST: ADULTO -->
         <section id="test-adulto">
-            <button class="btn-cta" style="padding: 10px 20px; font-size: 1rem; margin-bottom: 20px;"
-                onclick="document.querySelector('a[href=\'#evaluacion\']').click(); document.getElementById('evaluacion').classList.add('active'); document.getElementById('test-adulto').classList.remove('active');">←
-                Volver</button>
+            <button class="btn-back" onclick="navigateTo('evaluacion')">← Volver</button>
             <h2>Evaluación: RCP Adulto</h2>
 
             <table id="table-adulto" class="eval-table">
                 <thead>
                     <tr>
                         <th>Criterio</th>
-                        <th style="width: 80px; text-align: center;">Sí</th>
-                        <th style="width: 80px; text-align: center;">No</th>
+                        <th class="th-center">Sí</th>
+                        <th class="th-center">No</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -238,33 +318,33 @@
                     </tr>
                     <tr>
                         <td>Comprobar respuesta ("¡Hola, estás bien!")</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Pedir ayuda a alguien cercano</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Abrir vía aérea (frente-mentón)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Evaluar respiración (VOS, máx 10s)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Llamar al 112 si no respira</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Realiza 30 compresiones y 2 ventilaciones</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
 
                     <tr>
@@ -272,18 +352,18 @@
                     </tr>
                     <tr>
                         <td>Posición correcta de manos</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Profundidad adecuada (5 cm)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Ritmo adecuado (100-120 cpm)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
 
                     <tr>
@@ -291,40 +371,38 @@
                     </tr>
                     <tr>
                         <td>Apertura vía aérea correcta</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Pinzar la nariz</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>El pecho se eleva con la insuflación</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                 </tbody>
             </table>
 
-            <button class="btn-cta" style="width: 100%; margin-top: 2rem;"
-                onclick="calculateScore('table-adulto', 'res-adulto')">Calcular Nota</button>
+            <button class="btn-cta full-width" onclick="calculateScore('table-adulto', 'res-adulto')">Calcular
+                Nota</button>
             <div id="res-adulto" class="result-display"></div>
         </section>
 
         <!-- TEST: NIÑO -->
         <section id="test-nino">
-            <button class="btn-cta" style="padding: 10px 20px; font-size: 1rem; margin-bottom: 20px;"
-                onclick="document.querySelector('a[href=\'#evaluacion\']').click(); document.getElementById('evaluacion').classList.add('active'); document.getElementById('test-nino').classList.remove('active');">←
-                Volver</button>
+            <button class="btn-back" onclick="navigateTo('evaluacion')">← Volver</button>
             <h2>Evaluación: RCP Niño</h2>
 
             <table id="table-nino" class="eval-table">
                 <thead>
                     <tr>
                         <th>Criterio</th>
-                        <th style="width: 80px; text-align: center;">Sí</th>
-                        <th style="width: 80px; text-align: center;">No</th>
+                        <th class="th-center">Sí</th>
+                        <th class="th-center">No</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -333,38 +411,38 @@
                     </tr>
                     <tr>
                         <td>Comprobar respuesta</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Pedir ayuda</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Abrir vía aérea</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Evaluar respiración (VOS)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td><strong>5 insuflaciones de rescate iniciales</strong></td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>1 min de RCP antes de llamar (si estás solo)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Llamar al 112</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
 
                     <tr>
@@ -372,24 +450,23 @@
                     </tr>
                     <tr>
                         <td>Compresiones con 1 o 2 manos (según tamaño)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Profundidad 4-5 cm</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                     <tr>
                         <td>Relación 15:2 (sanitarios) o 30:2 (legos)</td>
-                        <td style="text-align: center;"><button class="btn-toggle yes">Sí</button></td>
-                        <td style="text-align: center;"><button class="btn-toggle no">No</button></td>
+                        <td class="td-center"><button class="btn-toggle yes">Sí</button></td>
+                        <td class="td-center"><button class="btn-toggle no">No</button></td>
                     </tr>
                 </tbody>
             </table>
 
-            <button class="btn-cta" style="width: 100%; margin-top: 2rem;"
-                onclick="calculateScore('table-nino', 'res-nino')">Calcular Nota</button>
+            <button class="btn-cta full-width" onclick="calculateScore('table-nino', 'res-nino')">Calcular Nota</button>
             <div id="res-nino" class="result-display"></div>
         </section>
 

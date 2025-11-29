@@ -3,14 +3,14 @@
     --primary-dark: #3f37c9;
     --secondary: #4cc9f0;
     --accent: #f72585;
-    --success: #4cc9f0; /* Using cyan/green for success */
+    --success: #4cc9f0;
     --success-dark: #4895ef;
     --danger: #f72585;
     --light: #f8f9fa;
     --dark: #212529;
     --gray: #6c757d;
     --card-bg: #ffffff;
-    --shadow: 0 10px 20px rgba(0,0,0,0.08);
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     --radius: 16px;
     --font-heading: 'Nunito', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -30,7 +30,10 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: var(--font-heading);
     font-weight: 800;
     color: var(--primary-dark);
@@ -72,7 +75,7 @@ nav ul {
 }
 
 nav a {
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
@@ -80,8 +83,9 @@ nav a {
     border-radius: 20px;
 }
 
-nav a:hover, nav a.active {
-    background: rgba(255,255,255,0.2);
+nav a:hover,
+nav a.active {
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     transform: translateY(-2px);
 }
@@ -95,7 +99,7 @@ main {
 
 /* --- Sections --- */
 section {
-    display: none; /* Hidden by default, JS toggles this */
+    display: none;
     animation: fadeIn 0.6s ease-out;
 }
 
@@ -104,8 +108,25 @@ section.active {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-desc {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* --- Hero Section --- */
@@ -130,8 +151,14 @@ section.active {
 .hero p {
     font-size: 1.2rem;
     color: var(--gray);
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .btn-cta {
@@ -140,7 +167,7 @@ section.active {
     color: white;
     padding: 15px 40px;
     border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 10px 20px rgba(67, 97, 238, 0.4);
@@ -154,102 +181,284 @@ section.active {
     box-shadow: 0 15px 30px rgba(67, 97, 238, 0.5);
 }
 
-/* --- Cards Grid --- */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+.btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: none;
 }
 
-.card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    transition: all 0.3s;
-    border: 1px solid rgba(0,0,0,0.05);
+.btn-secondary:hover {
+    background: #f0f4ff;
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+}
+
+.btn-back {
+    padding: 8px 16px;
+    background: #e9ecef;
+    border: none;
+    border-radius: 20px;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--primary);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-.card:hover::before {
-    transform: scaleX(1);
-}
-
-.card-icon {
-    font-size: 3rem;
+    font-weight: 600;
     margin-bottom: 1rem;
+    transition: all 0.2s;
 }
 
-.card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+.btn-back:hover {
+    background: #dee2e6;
 }
 
-/* --- Training Modules --- */
-.step-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.step {
+/* --- Chain of Survival --- */
+.chain-container {
     background: white;
     padding: 2rem;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.step-number {
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgba(67, 97, 238, 0.1);
-    min-width: 80px;
     text-align: center;
 }
 
-.step-content h3 {
-    color: var(--primary);
+.chain-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-/* --- Metronome Tool --- */
+.chain-link {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.chain-link:hover {
+    transform: translateY(-5px);
+    background: #e7f5ff;
+}
+
+.chain-link .icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.chain-link p {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+}
+
+.chain-arrow {
+    font-size: 1.5rem;
+    color: var(--gray);
+}
+
+/* --- Story Cards --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.story-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.story-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.story-card h3 {
+    margin-bottom: 1rem;
+}
+
+.story-card p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.story-card .author {
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    text-align: right;
+}
+
+/* --- PAS Theory --- */
+.pas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.pas-step {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    box-shadow: var(--shadow);
+}
+
+.pas-header {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 1rem;
+}
+
+.pas-step.protect .pas-header {
+    background: #ff9f1c;
+}
+
+.pas-step.alert .pas-header {
+    background: #e71d36;
+}
+
+.pas-step.soccor .pas-header {
+    background: #2ec4b6;
+}
+
+.pas-header .letter {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.pas-content {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.pas-content ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.pas-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Algorithm Flowchart --- */
+.algorithm-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.algo-box {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.algo-box.start {
+    background: var(--primary);
+    color: white;
+}
+
+.algo-box.safe {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+}
+
+.algo-box.warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffeeba;
+}
+
+.algo-box.danger {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.algo-arrow {
+    font-size: 1.5rem;
+    color: var(--gray);
+}
+
+.algo-split,
+.algo-split-inner {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.algo-branch,
+.algo-branch-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.algo-line {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #e9ecef;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* --- Metronome --- */
 .metronome-box {
     background: var(--dark);
     color: white;
     padding: 2rem;
     border-radius: var(--radius);
     text-align: center;
-    margin: 2rem auto;
-    max-width: 500px;
+    margin-top: 2rem;
 }
 
 .heart-beat {
     font-size: 5rem;
     margin: 1rem;
-    animation: none;
 }
 
 .beating {
@@ -257,11 +466,25 @@ section.active {
 }
 
 @keyframes beat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.3); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.15); }
-    60% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.3);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+
+    60% {
+        transform: scale(1);
+    }
 }
 
 /* --- Evaluation Tables --- */
@@ -280,9 +503,17 @@ section.active {
     letter-spacing: 1px;
 }
 
+.th-center {
+    text-align: center !important;
+}
+
+.td-center {
+    text-align: center;
+}
+
 .eval-table tr {
     background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s;
 }
 
@@ -305,25 +536,16 @@ section.active {
     border-bottom-right-radius: 10px;
 }
 
-.subheader {
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
 .subheader td {
-    font-size: 1.2rem;
+    background: transparent !important;
+    font-size: 1.1rem;
     color: var(--primary);
-    padding-top: 2rem !important;
-    padding-bottom: 0.5rem !important;
+    padding-top: 1.5rem !important;
     border-bottom: 2px solid var(--secondary);
+    border-radius: 0 !important;
 }
 
 /* --- Toggle Buttons --- */
-.toggle-group {
-    display: flex;
-    gap: 10px;
-}
-
 .btn-toggle {
     padding: 8px 16px;
     border: 2px solid #e9ecef;
@@ -351,6 +573,11 @@ section.active {
     color: white;
 }
 
+.full-width {
+    width: 100%;
+    margin-top: 2rem;
+}
+
 /* --- Results --- */
 .result-display {
     text-align: center;
@@ -359,7 +586,7 @@ section.active {
     border-radius: var(--radius);
     background: white;
     box-shadow: var(--shadow);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     display: none;
 }
@@ -376,10 +603,67 @@ section.active {
     border: 2px solid #f5c6cb;
 }
 
+/* --- Card (General) --- */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    header { flex-direction: column; gap: 1rem; }
-    nav ul { gap: 10px; font-size: 0.9rem; }
-    .step { flex-direction: column; text-align: center; }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        gap: 10px;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pas-step {
+        flex-direction: column;
+    }
+
+    .pas-header {
+        width: 100%;
+        flex-direction: row;
+        gap: 10px;
+        padding: 0.5rem;
+    }
+
+    .pas-header .letter {
+        font-size: 2rem;
+    }
+
+    .algo-split,
+    .algo-split-inner {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .chain-arrow {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+    }
 }

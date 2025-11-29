@@ -1,20 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigation
+    // --- Navigation Logic ---
     const navLinks = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('section');
     const logoLink = document.querySelector('.logo');
 
-    function navigateTo(id) {
-        // Update Nav
+    // Function to handle navigation
+    window.navigateTo = function (id) {
+        // Update Nav Active State
         navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
+            const href = link.getAttribute('href').substring(1);
+            if (href === id) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
             }
         });
 
-        // Show Section
+        // Show Target Section
         sections.forEach(sec => {
             sec.classList.remove('active');
             if (sec.id === id) {
@@ -23,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Scroll to top
-        window.scrollTo(0, 0);
-    }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
+    // Attach click events to nav links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -34,20 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Logo click to home
     if (logoLink) {
-        logoLink.addEventListener('click', (e) => {
-            e.preventDefault();
+        logoLink.addEventListener('click', () => {
             navigateTo('home');
         });
     }
 
-    // Initialize to Home
-    navigateTo('home');
-
     // --- Metronome Logic ---
     let metroInterval;
     let isPlaying = false;
-    const bpm = 110; // Average of 100-120
+    const bpm = 110;
     const heartIcon = document.getElementById('heart-icon');
     const metroBtn = document.getElementById('metro-btn');
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -67,12 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
         metroBtn.addEventListener('click', () => {
             if (isPlaying) {
                 clearInterval(metroInterval);
-                metroBtn.textContent = "▶️ Iniciar Ritmo (110 BPM)";
+                metroBtn.textContent = "▶️ Iniciar Metrónomo (110 BPM)";
                 metroBtn.style.background = "var(--primary)";
                 heartIcon.classList.remove('beating');
                 isPlaying = false;
             } else {
-                // Unlock audio context on user gesture
+                // Unlock audio context
                 if (audioCtx.state === 'suspended') {
                     audioCtx.resume();
                 }
@@ -80,10 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 metroBtn.textContent = "⏹ Detener";
                 metroBtn.style.background = "var(--danger)";
                 heartIcon.classList.add('beating');
-                // Set animation duration to match BPM
                 heartIcon.style.animationDuration = `${60 / bpm}s`;
 
-                playTone(); // First beat
+                playTone();
                 metroInterval = setInterval(playTone, (60 / bpm) * 1000);
                 isPlaying = true;
             }
@@ -92,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Evaluation Logic ---
 
-    // Handle Toggle Buttons
+    // Toggle Button Selection
     document.querySelectorAll('.btn-toggle').forEach(btn => {
         btn.addEventListener('click', function () {
             const row = this.closest('tr');
@@ -106,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Calculate Functions
+    // Score Calculation
     window.calculateScore = function (tableId, resultId) {
         const rows = document.querySelectorAll(`#${tableId} tbody tr`);
         let totalCorrect = 0;
@@ -121,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const yesBtn = row.querySelector('.btn-toggle.yes');
             const noBtn = row.querySelector('.btn-toggle.no');
 
-            if (!yesBtn || !noBtn) return; // Safety check
+            if (!yesBtn || !noBtn) return;
 
             if (yesBtn.classList.contains('selected')) {
                 answered++;
@@ -136,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const resultDiv = document.getElementById(resultId);
         resultDiv.style.display = 'block';
-        resultDiv.className = 'result-display'; // Reset classes
+        resultDiv.className = 'result-display';
 
         if (answered === 0) {
             resultDiv.textContent = "⚠️ Por favor, responde al menos una pregunta.";
@@ -146,16 +145,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let score = ((totalCorrect / totalQuestions) * 10) - penalty;
-        score = Math.max(0, score); // No negative scores
+        score = Math.max(0, score);
 
         resultDiv.textContent = `Nota Final: ${score.toFixed(2)} / 10`;
 
         if (score >= 5) {
             resultDiv.classList.add('pass');
-            resultDiv.innerHTML += "<br>🎉 ¡Aprobado! ¡Buen trabajo salvando vidas!";
+            resultDiv.innerHTML += "<br>🎉 ¡Aprobado! ¡Buen trabajo!";
         } else {
             resultDiv.classList.add('fail');
-            resultDiv.innerHTML += "<br>🚑 Necesitas practicar más. ¡Inténtalo de nuevo!";
+            resultDiv.innerHTML += "<br>🚑 Necesitas repasar. ¡Inténtalo de nuevo!";
         }
     };
 });
