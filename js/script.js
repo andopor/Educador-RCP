@@ -27,10 +27,12 @@ window.navigateTo = function (id) {
 
 window.calculateScore = function (tableId, resultId) {
     const rows = document.querySelectorAll(`#${tableId} tbody tr`);
-    let totalCorrect = 0;
-    let totalQuestions = 0;
-    let penalty = 0;
-    let answered = 0;
+    let totalErrors = 0;
+    let answeredCount = 0;
+    let questionCount = 0;
+
+    // First pass: Validation and counting
+    let allAnswered = true;
 
     rows.forEach(row => {
         // Skip subheaders
@@ -41,14 +43,15 @@ window.calculateScore = function (tableId, resultId) {
 
         if (!yesBtn || !noBtn) return;
 
+        questionCount++;
+
         if (yesBtn.classList.contains('selected')) {
-            answered++;
-            totalQuestions++;
-            totalCorrect++;
+            answeredCount++;
         } else if (noBtn.classList.contains('selected')) {
-            answered++;
-            totalQuestions++;
-            penalty += 0.5;
+            answeredCount++;
+            totalErrors++;
+        } else {
+            allAnswered = false;
         }
     });
 
@@ -56,15 +59,16 @@ window.calculateScore = function (tableId, resultId) {
     resultDiv.style.display = 'block';
     resultDiv.className = 'result-display';
 
-    if (answered === 0) {
-        resultDiv.textContent = "⚠️ Por favor, responde al menos una pregunta.";
+    if (!allAnswered) {
+        resultDiv.textContent = "⚠️ Debes responder TODAS las preguntas para obtener tu nota.";
         resultDiv.style.background = "#fff3cd";
         resultDiv.style.color = "#856404";
         return;
     }
 
-    let score = ((totalCorrect / totalQuestions) * 10) - penalty;
-    score = Math.max(0, score);
+    // New Scoring Formula: Start with 10, subtract 0.5 per error
+    let score = 10 - (totalErrors * 0.5);
+    score = Math.max(0, score); // Minimum score 0
 
     resultDiv.textContent = `Nota Final: ${score.toFixed(2)} / 10`;
 
