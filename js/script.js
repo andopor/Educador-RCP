@@ -77,6 +77,25 @@ window.calculateScore = function (tableId, resultId) {
     }
 };
 
+// Text-to-Speech Logic
+window.readText = function (elementId) {
+    const text = document.getElementById(elementId).innerText;
+
+    if ('speechSynthesis' in window) {
+        // Cancel any ongoing speech
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES'; // Spanish
+        utterance.rate = 0.9; // Slightly slower for clarity
+        utterance.pitch = 1;
+
+        window.speechSynthesis.speak(utterance);
+    } else {
+        alert("Lo siento, tu navegador no soporta la lectura de texto.");
+    }
+};
+
 // Interactive Algorithm Logic
 window.nextStep = function (currentStepId, nextStepId) {
     document.getElementById(currentStepId).style.display = 'none';

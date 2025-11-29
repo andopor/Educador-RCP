@@ -74,28 +74,42 @@
 
             <div class="grid">
                 <div class="story-card">
-                    <div class="story-img" style="background-color: #ffadad;">⚽</div>
-                    <h3>El partido decisivo</h3>
-                    <p>"Estábamos jugando la final del torneo escolar cuando Álex se desplomó. Todos pensaron que era un
-                        mareo, pero yo vi que no respiraba. Recordé lo que aprendimos en clase: llamé al 112 y empecé a
-                        comprimir. Álex hoy sigue jugando con nosotros."</p>
-                    <span class="author">- Marcos, 15 años</span>
+                    <button class="btn-speak" onclick="readText('story-1')">🔊</button>
+                    <div id="story-1">
+                        <div class="story-img" style="background-color: #ffadad;">⚽</div>
+                        <h3>El partido decisivo</h3>
+                        <p>"Estábamos jugando la final del torneo escolar cuando Álex se desplomó. Todos pensaron que
+                            era un
+                            mareo, pero yo vi que no respiraba. Recordé lo que aprendimos en clase: llamé al 112 y
+                            empecé a
+                            comprimir. Álex hoy sigue jugando con nosotros."</p>
+                        <span class="author">- Marcos, 15 años</span>
+                    </div>
                 </div>
                 <div class="story-card">
-                    <div class="story-img" style="background-color: #ffd6a5;">🏠</div>
-                    <h3>Un domingo en casa</h3>
-                    <p>"Mi abuelo estaba viendo la tele y de repente dejó de responder. Me asusté mucho, pero sabía que
-                        no podía quedarme quieta. Grité a mi madre para que llamara a emergencias mientras yo le hacía
-                        el masaje cardíaco. Los médicos dijeron que mis manos fueron su corazón durante 10 minutos."</p>
-                    <span class="author">- Lucía, 14 años</span>
+                    <button class="btn-speak" onclick="readText('story-2')">🔊</button>
+                    <div id="story-2">
+                        <div class="story-img" style="background-color: #ffd6a5;">🏠</div>
+                        <h3>Un domingo en casa</h3>
+                        <p>"Mi abuelo estaba viendo la tele y de repente dejó de responder. Me asusté mucho, pero sabía
+                            que
+                            no podía quedarme quieta. Grité a mi madre para que llamara a emergencias mientras yo le
+                            hacía
+                            el masaje cardíaco. Los médicos dijeron que mis manos fueron su corazón durante 10 minutos."
+                        </p>
+                        <span class="author">- Lucía, 14 años</span>
+                    </div>
                 </div>
                 <div class="story-card">
-                    <div class="story-img" style="background-color: #fdffb6;">🛍️</div>
-                    <h3>En el centro comercial</h3>
-                    <p>"Un señor se cayó al suelo en la cola del cine. La gente miraba y grababa con el móvil, pero
-                        nadie hacía nada. Me acerqué, vi que no respiraba y empecé la RCP. Fue agotador, pero cuando
-                        llegó la ambulancia, su corazón volvió a latir."</p>
-                    <span class="author">- Javier, 16 años</span>
+                    <button class="btn-speak" onclick="readText('story-3')">🔊</button>
+                    <div id="story-3">
+                        <div class="story-img" style="background-color: #fdffb6;">🛍️</div>
+                        <h3>En el centro comercial</h3>
+                        <p>"Un señor se cayó al suelo en la cola del cine. La gente miraba y grababa con el móvil, pero
+                            nadie hacía nada. Me acerqué, vi que no respiraba y empecé la RCP. Fue agotador, pero cuando
+                            llegó la ambulancia, su corazón volvió a latir."</p>
+                        <span class="author">- Javier, 16 años</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -113,12 +127,15 @@
                         <h3>ROTEGER</h3>
                     </div>
                     <div class="pas-content">
-                        <p>Antes de actuar, asegúrate de que <strong>tú no corres peligro</strong>.</p>
-                        <ul>
-                            <li>¿Hay tráfico? ¿Fuego? ¿Electricidad?</li>
-                            <li>Si el entorno no es seguro, no te acerques.</li>
-                            <li>Señaliza el lugar para evitar más accidentes.</li>
-                        </ul>
+                        <button class="btn-speak" onclick="readText('pas-p')">🔊 Escuchar</button>
+                        <div id="pas-p">
+                            <p>Antes de actuar, asegúrate de que <strong>tú no corres peligro</strong>.</p>
+                            <ul>
+                                <li>¿Hay tráfico? ¿Fuego? ¿Electricidad?</li>
+                                <li>Si el entorno no es seguro, no te acerques.</li>
+                                <li>Señaliza el lugar para evitar más accidentes.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -128,12 +145,15 @@
                         <h3>VISAR</h3>
                     </div>
                     <div class="pas-content">
-                        <p>Llama inmediatamente al <strong>112</strong>. Mantén la calma y di:</p>
-                        <ul>
-                            <li><strong>QUÉ</strong> pasa: "Hay una persona inconsciente que no respira".</li>
-                            <li><strong>DÓNDE</strong> estás: Dirección exacta o puntos de referencia.</li>
-                            <li><strong>QUIÉN</strong> eres: Da tu nombre y no cuelgues hasta que te lo digan.</li>
-                        </ul>
+                        <button class="btn-speak" onclick="readText('pas-a')">🔊 Escuchar</button>
+                        <div id="pas-a">
+                            <p>Llama inmediatamente al <strong>112</strong>. Mantén la calma y di:</p>
+                            <ul>
+                                <li><strong>QUÉ</strong> pasa: "Hay una persona inconsciente que no respira".</li>
+                                <li><strong>DÓNDE</strong> estás: Dirección exacta o puntos de referencia.</li>
+                                <li><strong>QUIÉN</strong> eres: Da tu nombre y no cuelgues hasta que te lo digan.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -143,13 +163,16 @@
                         <h3>OCORRER</h3>
                     </div>
                     <div class="pas-content">
-                        <p>Es hora de actuar. Si la víctima no respira, inicia la RCP.</p>
-                        <ul>
-                            <li><strong>30 Compresiones:</strong> Fuertes y rápidas (centro del pecho).</li>
-                            <li><strong>2 Insuflaciones:</strong> Tapa la nariz y sopla en la boca (opcional si no
-                                tienes entrenamiento o protección, en ese caso solo comprime).</li>
-                            <li>No pares hasta que llegue la ayuda o la víctima despierte.</li>
-                        </ul>
+                        <button class="btn-speak" onclick="readText('pas-s')">🔊 Escuchar</button>
+                        <div id="pas-s">
+                            <p>Es hora de actuar. Si la víctima no respira, inicia la RCP.</p>
+                            <ul>
+                                <li><strong>30 Compresiones:</strong> Fuertes y rápidas (centro del pecho).</li>
+                                <li><strong>2 Insuflaciones:</strong> Tapa la nariz y sopla en la boca (opcional si no
+                                    tienes entrenamiento o protección, en ese caso solo comprime).</li>
+                                <li>No pares hasta que llegue la ayuda o la víctima despierte.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

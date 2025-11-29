@@ -615,6 +615,29 @@ section.active {
     margin-bottom: 1rem;
 }
 
+/* --- Speak Button --- */
+.btn-speak {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-speak:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
     .hero h1 {
