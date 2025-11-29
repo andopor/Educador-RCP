@@ -1,11 +1,17 @@
 :root {
-    --primary: #4361ee;
-    --primary-dark: #3f37c9;
-    --secondary: #4cc9f0;
-    --accent: #f72585;
-    --success: #4cc9f0;
-    --success-dark: #4895ef;
-    --danger: #f72585;
+    --primary: #0056b3;
+    /* Deep Blue */
+    --primary-dark: #003d82;
+    /* Darker Blue */
+    --secondary: #00a8e8;
+    /* Cyan */
+    --accent: #76c043;
+    /* Lime Green */
+    --success: #76c043;
+    /* Green */
+    --success-dark: #5a9e32;
+    --danger: #dc3545;
+    /* Standard Red for medical/alert */
     --light: #f8f9fa;
     --dark: #212529;
     --gray: #6c757d;
@@ -28,6 +34,9 @@ body {
     color: var(--dark);
     line-height: 1.6;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1,
@@ -61,10 +70,11 @@ header {
     gap: 10px;
 }
 
-.logo span {
+.nav-logo {
+    height: 50px;
+    width: auto;
     background: white;
-    color: var(--primary);
-    padding: 2px 8px;
+    padding: 2px;
     border-radius: 8px;
 }
 
@@ -94,7 +104,8 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    min-height: 85vh;
+    flex: 1;
+    width: 100%;
 }
 
 /* --- Sections --- */
@@ -143,7 +154,7 @@ section.active {
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 900;
-    background: linear-gradient(135deg, var(--primary), #E91E63);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -792,7 +803,8 @@ footer {
     background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
     color: white;
     padding: 2rem 0;
-    margin-top: 4rem;
+    margin-top: auto;
+    /* Push to bottom if flex fails, but flex:1 on main handles it */
     text-align: center;
 }
 
