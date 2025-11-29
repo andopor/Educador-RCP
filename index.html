@@ -7,7 +7,7 @@
     <title>Educador RCP - Aprende a Salvar Vidas</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1.5">
+    <link rel="stylesheet" href="css/style.css?v=1.6">
 </head>
 
 <body>
@@ -185,39 +185,93 @@
                 <button id="metro-btn" class="btn-cta">▶️ Iniciar Metrónomo (110 BPM)</button>
             </div>
 
-            <!-- QUICK REFERENCE CARD -->
-            <div class="quick-ref-card">
-                <h3>📋 Tarjeta de Referencia Rápida</h3>
-                <div class="ref-grid">
-                    <div class="ref-item">
-                        <div class="ref-number">1</div>
-                        <h4>Seguridad</h4>
-                        <p>Protégete primero</p>
+            <!-- FLASHCARDS SECTION -->
+            <div class="flashcards-container">
+                <h3>🃏 Repaso Rápido (Haz clic para girar)</h3>
+                <div class="flashcards-grid">
+                    <!-- Card 1 -->
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="card-number">1</div>
+                                <h4>¿Paso 1?</h4>
+                                <p>Lo primero que debes garantizar...</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>SEGURIDAD</h4>
+                                <p>Protégete a ti mismo y al entorno antes de acercarte.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ref-item">
-                        <div class="ref-number">2</div>
-                        <h4>Comprueba</h4>
-                        <p>¿Responde? ¿Respira?</p>
+                    <!-- Card 2 -->
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="card-number">2</div>
+                                <h4>¿Consciencia?</h4>
+                                <p>¿Cómo compruebas si responde?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>ESTÍMULO</h4>
+                                <p>Sacude sus hombros y háblale fuerte a ambos oídos.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ref-item">
-                        <div class="ref-number">3</div>
-                        <h4>Llama 112</h4>
-                        <p>Activa la emergencia</p>
+                    <!-- Card 3 -->
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="card-number">3</div>
+                                <h4>¿No respira?</h4>
+                                <p>La víctima no responde y no respira normal...</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>LLAMA 112</h4>
+                                <p>Llama inmediatamente e inicia RCP.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ref-item">
-                        <div class="ref-number">4</div>
-                        <h4>30 Compresiones</h4>
-                        <p>5 cm profundidad</p>
+                    <!-- Card 4 -->
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="card-number">4</div>
+                                <h4>Ritmo</h4>
+                                <p>¿A qué velocidad comprimimos?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>100-120 cpm</h4>
+                                <p>Al ritmo de "Macarena" o "Stayin' Alive".</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ref-item">
-                        <div class="ref-number">5</div>
-                        <h4>2 Ventilaciones</h4>
-                        <p>Ver pecho subir</p>
+                    <!-- Card 5 -->
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="card-number">5</div>
+                                <h4>Profundidad</h4>
+                                <p>¿Cuánto hundimos el pecho?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>5-6 cm</h4>
+                                <p>Comprime fuerte y deja que el pecho suba.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ref-item">
-                        <div class="ref-number">6</div>
-                        <h4>Repite 30:2</h4>
-                        <p>Hasta que llegue ayuda</p>
+                    <!-- Card 6 -->
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="card-number">6</div>
+                                <h4>Ciclo</h4>
+                                <p>¿Cuál es la relación compresión/aire?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>30:2</h4>
+                                <p>30 compresiones y 2 ventilaciones.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -228,6 +282,27 @@
         <section id="algoritmo">
             <h2>Algoritmo de Actuación</h2>
             <p class="section-desc">Responde a las preguntas para saber qué hacer en cada momento.</p>
+
+            <!-- Mermaid Diagram -->
+            <div class="mermaid-container">
+                <h3>Esquema Visual</h3>
+                <div class="mermaid">
+                    graph TD
+                    A[¿Responde?] -->|NO| B[Grita Ayuda / Abre Vía Aérea]
+                    B --> C[¿Respira Normal?]
+                    C -->|SI| D[Posición Lateral Seguridad]
+                    C -->|NO| E[LLAMA 112]
+                    E --> F[RCP 30:2]
+                    F --> G[Usar DEA si hay]
+                    style A fill:#ffecb3,stroke:#ffa000,stroke-width:2px
+                    style B fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+                    style C fill:#ffecb3,stroke:#ffa000,stroke-width:2px
+                    style D fill:#c8e6c9,stroke:#4caf50,stroke-width:2px
+                    style E fill:#ffcdd2,stroke:#f44336,stroke-width:2px
+                    style F fill:#ffcdd2,stroke:#f44336,stroke-width:2px
+                    style G fill:#e1bee7,stroke:#9c27b0,stroke-width:2px
+                </div>
+            </div>
 
             <div class="algorithm-flow">
 
@@ -299,52 +374,49 @@
             <h2>Recursos y Más Información</h2>
             <p class="section-desc">Herramientas adicionales para profundizar tu aprendizaje.</p>
 
-            <div class="resources-grid">
-                <div class="resource-card dea-card">
-                    <div class="resource-icon">⚡</div>
-                    <h3>¿Qué es un DEA?</h3>
-                    <p>El <strong>Desfibrilador Externo Automático (DEA)</strong> es un dispositivo que puede salvar
-                        vidas. Analiza el ritmo cardíaco y, si es necesario, aplica una descarga eléctrica para
-                        restablecer el latido normal.</p>
-                    <div class="dea-steps">
-                        <h4>Cómo usarlo:</h4>
-                        <ol>
-                            <li><strong>Enciéndelo</strong> - Sigue las instrucciones de voz</li>
-                            <li><strong>Coloca los parches</strong> - En el pecho desnudo</li>
-                            <li><strong>Aléjate</strong> - El DEA analizará el ritmo</li>
-                            <li><strong>Descarga si es necesario</strong> - Presiona el botón cuando te lo indique</li>
-                            <li><strong>Continúa RCP</strong> - Hasta que llegue ayuda</li>
-                        </ol>
+            <div class="resources-container">
+                <!-- Top Row: DEA and Tips (50% each) -->
+                <div class="resources-top-row">
+                    <div class="resource-card dea-card">
+                        <div class="resource-icon">⚡</div>
+                        <h3>¿Qué es un DEA?</h3>
+                        <p>El <strong>Desfibrilador Externo Automático (DEA)</strong> analiza el ritmo cardíaco y aplica
+                            una descarga si es necesario.</p>
+                        <div class="dea-steps">
+                            <h4>Cómo usarlo:</h4>
+                            <ol>
+                                <li><strong>Enciéndelo</strong> - Sigue las instrucciones</li>
+                                <li><strong>Coloca parches</strong> - Pecho desnudo</li>
+                                <li><strong>Aléjate</strong> - Análisis de ritmo</li>
+                                <li><strong>Descarga</strong> - Si lo indica</li>
+                            </ol>
+                        </div>
                     </div>
-                    <p class="tip">💡 <strong>¿Dónde encontrar un DEA?</strong> En centros comerciales, aeropuertos,
-                        polideportivos, estaciones de tren, y edificios públicos. Busca el símbolo del corazón con rayo.
-                    </p>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">🎓</div>
+                        <h3>Recuerda</h3>
+                        <ul class="tips-list">
+                            <li>✅ Llama al <strong>112</strong> antes de empezar</li>
+                            <li>✅ Si hay un DEA, úsalo</li>
+                            <li>✅ Mejor intentar que no hacer nada</li>
+                            <li>✅ Practica regularmente</li>
+                            <li>✅ Enseña a otros</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="resource-card">
+                <!-- Bottom Row: Links (Full Width) -->
+                <div class="resource-card links-card">
                     <div class="resource-icon">📚</div>
-                    <h3>Enlaces Útiles</h3>
-                    <ul class="links-list">
-                        <li><a href="https://www.semicyuc.org/" target="_blank" rel="noopener">SEMICYUC - Sociedad
-                                Española de Medicina Intensiva</a></li>
-                        <li><a href="https://www.cercp.org/" target="_blank" rel="noopener">Consejo Español de RCP</a>
-                        </li>
-                        <li><a href="https://www.erc.edu/" target="_blank" rel="noopener">European Resuscitation Council
-                                (ERC)</a></li>
+                    <h3>Bibliografía y Enlaces Útiles</h3>
+                    <ul class="links-list horizontal-list">
+                        <li><a href="https://www.semicyuc.org/" target="_blank" rel="noopener">SEMICYUC</a></li>
+                        <li><a href="https://www.cercp.org/" target="_blank" rel="noopener">Consejo Español RCP</a></li>
+                        <li><a href="https://www.erc.edu/" target="_blank" rel="noopener">European Resuscitation
+                                Council</a></li>
                         <li><a href="https://www.redcross.es/" target="_blank" rel="noopener">Cruz Roja Española</a>
                         </li>
-                    </ul>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-icon">🎓</div>
-                    <h3>Recuerda</h3>
-                    <ul class="tips-list">
-                        <li>✅ Llama al <strong>112</strong> antes de empezar RCP</li>
-                        <li>✅ Si hay un DEA disponible, úsalo</li>
-                        <li>✅ No tengas miedo de equivocarte - intentarlo es mejor que no hacer nada</li>
-                        <li>✅ Practica regularmente para mantener la habilidad</li>
-                        <li>✅ Enseña a otros lo que has aprendido</li>
                     </ul>
                 </div>
             </div>
@@ -629,7 +701,9 @@
         </div>
     </footer>
 
-    <script src="js/script.js?v=1.5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true });</script>
+    <script src="js/script.js?v=1.6"></script>
 </body>
 
 </html>
