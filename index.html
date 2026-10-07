@@ -7,7 +7,7 @@
   <meta name="description" content="Aprende a reconocer una emergencia, llamar al 112 y practicar RCP. Una experiencia para 1.º y 2.º de ESO del IES María Soliño, basada en ERC 2025.">
   <title>Educador RCP | IES María Soliño</title>
   <link rel="icon" href="assets/logo-ies-maria-solino.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=2026.2">
+  <link rel="stylesheet" href="css/style.css?v=2026.3">
   <script type="module" src="js/app.js?v=2026.2"></script>
 </head>
 <body>
@@ -58,6 +58,24 @@
     </section>
     <section id="practica" class="page" hidden aria-labelledby="practice-title">
       <div class="page-heading"><span class="eyebrow">DEL «LO SÉ» AL «LO HARÍA»</span><h1 id="practice-title">Practica.<br><em>Gana confianza.</em></h1><p>Ensaya decisiones y entrena el ritmo. La técnica se practica con un maniquí.</p></div>
+      <figure class="panel algorithm-panel" aria-labelledby="algorithm-title">
+        <figcaption><span class="eyebrow">ALGORITMO VISUAL · ADULTO · ERC 2025</span><h2 id="algorithm-title">Todo el recorrido, de un vistazo.</h2><p>Primero, comprueba que el entorno es seguro. Háblale y toca suavemente sus hombros para comprobar si responde.</p></figcaption>
+        <p class="algorithm-aside"><strong>Si responde:</strong> atiende a lo que le ocurre, vigila su estado y llama al 112 si necesita ayuda urgente.</p>
+        <div class="flowchart">
+          <div class="flow-node flow-start"><span class="flow-icon" aria-hidden="true">?</span><strong>No responde</strong></div>
+          <div class="flow-arrow" aria-hidden="true">↓</div>
+          <div class="flow-node flow-call"><span class="flow-icon" aria-hidden="true">☎</span><strong>Llama al 112 inmediatamente</strong><span>Altavoz activado · Pide ayuda a quien esté cerca</span></div>
+          <div class="flow-arrow" aria-hidden="true">↓</div>
+          <div class="flow-node"><strong>Abre la vía aérea y comprueba la respiración</strong><span>Mientras se conecta la llamada · No más de 10 segundos</span></div>
+          <div class="flow-arrow" aria-hidden="true">↓</div>
+          <div class="flow-node flow-decision"><strong>¿Respira normalmente?</strong><span>Los jadeos y boqueadas aisladas no son respiración normal.</span></div>
+          <div class="flow-branches">
+            <div class="flow-branch flow-normal"><span class="flow-route">SÍ, CLARAMENTE</span><div class="flow-arrow" aria-hidden="true">↓</div><div class="flow-node"><strong>Mantén la vía aérea abierta y vigila</strong><span>Sigue al 112. Sin sospecha de traumatismo, puedes usar la posición lateral de seguridad.</span></div><p class="flow-reminder">Si deja de respirar normalmente, colócala boca arriba e inicia RCP.</p></div>
+            <div class="flow-branch flow-resuscitate"><span class="flow-route">NO / TENGO DUDAS</span><div class="flow-arrow" aria-hidden="true">↓</div><div class="flow-node"><strong>Inicia RCP</strong><span>100–120 compresiones/min · 5–6 cm<br>Deja que el pecho suba completamente.</span><span>30:2 si sabes y puedes ventilar.<br>Si no, compresiones continuas.</span></div><div class="flow-arrow" aria-hidden="true">↓</div><div class="flow-node"><strong>Usa el DEA en cuanto esté disponible</strong><span>Sigue sus instrucciones. Nadie toca durante el análisis ni la descarga. Reanuda RCP inmediatamente, descargue o no.</span></div></div>
+          </div>
+        </div>
+        <p class="small algorithm-footnote">Con móvil, llama en altavoz sin retrasar la reanimación y sigue al 112. Continúa hasta que los profesionales te releven, recupere signos claros de vida con respiración normal, no puedas seguir por agotamiento o el entorno deje de ser seguro. Para niños, consulta su lección específica.</p>
+      </figure>
       <div class="practice-grid">
         <article class="panel scenario-panel"><div class="panel-label"><span class="eyebrow">SIMULACIÓN · ADULTO</span><span class="pill">Tú decides</span></div><div id="scenario-content" aria-live="polite"></div></article>
         <article class="panel rhythm-panel"><span class="eyebrow">LABORATORIO DEL RITMO</span><h2>Lleva el ritmo.</h2><p>Entre 100 y 120 compresiones por minuto. Prueba a seguir el ritmo de 110.</p><div id="beat-heart" class="beat-heart" aria-hidden="true">♥</div><div class="bpm"><strong>110</strong><span>compresiones / minuto</span></div><button id="metronome" class="button primary" type="button" aria-pressed="false">Iniciar ritmo</button><p id="audio-status" class="small" role="status">Entrena solo con un maniquí. El ritmo no mide la profundidad ni la calidad de la RCP.</p></article>
