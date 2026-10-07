@@ -6,6 +6,6 @@
   "description": "Educador RCP del IES María Soliño para 1.º y 2.º de ESO",
   "scripts": {
     "test": "node --test tests/*.test.js",
-    "check": "node --check js/app.js && node --check js/content.js && node --check js/audio.js && node --check js/quiz.js"
+    "check": "node --check js/app.js && node --check js/content.js && node --check js/audio.js && node --check js/quiz.js && node --check js/peer.js"
   }
 }

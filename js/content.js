@@ -73,17 +73,6 @@ export const lessons = [
   },
 ];
 
-export const practicalChecklist = [
-  'Comprueba la seguridad y la respuesta sin estímulos dolorosos.',
-  'Llama al 112 en altavoz si no responde, antes de evaluar la respiración.',
-  'Abre la vía aérea y comprueba respiración normal en no más de 10 segundos.',
-  'Coloca las manos en la mitad inferior del esternón, brazos rectos.',
-  `Comprime ${protocol.adultDepth} a ${protocol.rate} por minuto.`,
-  'Permite que el pecho suba completamente y reduce las interrupciones.',
-  'Practica 30:2 si sabes ventilar, o compresiones continuas si no puedes.',
-  'Usa el DEA sin contacto durante análisis/descarga y reanuda RCP enseguida.',
-];
-
 export const questions = [
   {id:'call', level:1, prompt:'Una persona no responde. ¿Cuándo llamas al 112?', options:['En cuanto compruebo que no responde.', 'Después de comprobar su respiración.', 'Después de dos minutos de RCP.'], answer:0, explanation:'La llamada es inmediata si no responde. Con el altavoz activado, compruebas la respiración mientras se establece la conexión.'},
   {id:'gasp', level:1, prompt:'No responde y hace boqueadas aisladas. ¿Qué significa?', options:['Respira normalmente: espero.', 'Puede ser una parada: inicio RCP y sigo al 112.', 'Debo buscar el pulso antes de actuar.'], answer:1, explanation:'Los jadeos agónicos no son respiración normal. Si no responde y la respiración es anormal, asume una parada y empieza RCP.'},

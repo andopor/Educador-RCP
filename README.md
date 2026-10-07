@@ -25,7 +25,7 @@ Revisado el 7 de octubre de 2026 con las guías ERC 2025:
 
 La llamada al 112 sucede en cuanto se comprueba que la persona no responde. Los jadeos no se consideran respiración normal. La excepción pediátrica de un minuto antes de alejarse para pedir ayuda corresponde solo a estar solo sin teléfono disponible. La relación pediátrica depende de la formación específica en SVB pediátrico. La profundidad se adapta al tórax, con el límite máximo de 6 cm.
 
-Las actividades no acreditan la técnica. La lista de práctica es observación docente con maniquí. No se guardan datos personales ni se incluyen analíticas. La sección Recursos ha sido eliminada; el DEA se enseña en su propia lección y las fuentes están en el pie.
+Las actividades no acreditan la técnica. La evaluación por parejas ofrece tres rúbricas (compresiones, adulto y niño), opciones Sí/No y nota proporcional de 0 a 10. Requiere valorar todos los criterios y permite reiniciar para una nueva pareja. La técnica se observa con maniquí y orientación docente. No se guardan datos personales ni se incluyen analíticas. La sección Recursos ha sido eliminada; el DEA se enseña en su propia lección y las fuentes están en el pie.
 
 ## Publicación
 

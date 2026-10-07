@@ -7,8 +7,8 @@
   <meta name="description" content="Aprende a reconocer una emergencia, llamar al 112 y practicar RCP. Una experiencia para 1.º y 2.º de ESO del IES María Soliño, basada en ERC 2025.">
   <title>Educador RCP | IES María Soliño</title>
   <link rel="icon" href="assets/logo-ies-maria-solino.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=2026.1">
-  <script type="module" src="js/app.js?v=2026.1"></script>
+  <link rel="stylesheet" href="css/style.css?v=2026.2">
+  <script type="module" src="js/app.js?v=2026.2"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -22,6 +22,7 @@
       <a href="#aprende">Aprende</a>
       <a href="#practica">Practica</a>
       <a href="#retos">Retos</a>
+      <a href="#pares">En parejas</a>
     </nav>
     <span class="header-tag">TUS MANOS CUENTAN</span>
   </header>
@@ -61,13 +62,20 @@
         <article class="panel scenario-panel"><div class="panel-label"><span class="eyebrow">SIMULACIÓN · ADULTO</span><span class="pill">Tú decides</span></div><div id="scenario-content" aria-live="polite"></div></article>
         <article class="panel rhythm-panel"><span class="eyebrow">LABORATORIO DEL RITMO</span><h2>Lleva el ritmo.</h2><p>Entre 100 y 120 compresiones por minuto. Prueba a seguir el ritmo de 110.</p><div id="beat-heart" class="beat-heart" aria-hidden="true">♥</div><div class="bpm"><strong>110</strong><span>compresiones / minuto</span></div><button id="metronome" class="button primary" type="button" aria-pressed="false">Iniciar ritmo</button><p id="audio-status" class="small" role="status">Entrena solo con un maniquí. El ritmo no mide la profundidad ni la calidad de la RCP.</p></article>
       </div>
-      <article class="panel practical-panel"><div class="section-heading"><div><span class="eyebrow">EN CLASE · CON MANIQUÍ</span><h2>Lista de práctica en adultos</h2></div><span class="pill">Observación docente</span></div><p>Marca lo que habéis practicado juntos. Esta lista no da una nota ni acredita tu técnica.</p><div id="practice-checklist" class="checklist"></div><p id="checklist-status" class="small" role="status"></p></article>
+      <div class="classroom-banner"><span class="banner-icon" aria-hidden="true">✦</span><div><h2>Ahora, por parejas.</h2><p>Una persona practica y la otra observa. Marcad Sí o No y calculad la nota.</p></div><a class="button primary" href="#pares">Evaluación por parejas →</a></div>
     </section>
     <section id="retos" class="page" hidden aria-labelledby="challenge-title">
       <div class="page-heading"><span class="eyebrow">COMPRUEBA LO QUE SABES</span><h1 id="challenge-title">Pequeños retos.<br><em>Grandes aprendizajes.</em></h1><p>Equivocarse también enseña. Cada respuesta tiene una explicación.</p></div>
+      <p><a class="button secondary" href="#pares">¿Vais a practicar con maniquí? Evaluación por parejas →</a></p>
       <div class="course-picker" role="group" aria-label="Elige el nivel del reto"><button type="button" data-course="1" aria-pressed="true">1.º ESO <small>Ideas esenciales</small></button><button type="button" data-course="2" aria-pressed="false">2.º ESO <small>Aplica lo aprendido</small></button></div>
       <article class="panel quiz-panel" id="quiz-content" aria-live="polite"></article>
       <p class="small quiz-note">Este reto comprueba conocimientos. La práctica de RCP requiere formación presencial y un maniquí.</p>
+    </section>
+    <section id="pares" class="page" hidden aria-labelledby="peer-title">
+      <div class="page-heading"><span class="eyebrow">EN CLASE · CON MANIQUÍ</span><h1 id="peer-title">Aprended juntos.<br><em>Evaluad por parejas.</em></h1><p>Una persona practica y la otra observa. Marcad <strong>Sí</strong> si cumple cada criterio y <strong>No</strong> si necesita mejorarlo. Después, cambiad los papeles.</p></div>
+      <div id="peer-picker" class="course-picker peer-picker" role="group" aria-label="Elige la evaluación práctica"></div>
+      <article class="panel" id="peer-content"></article>
+      <p class="small">Nota de práctica entre compañeros: criterios cumplidos ÷ total de criterios × 10. Pedid a vuestro docente que os ayude a valorar profundidad, ritmo y técnica. Usad un maniquí y simulad la llamada; no llaméis al 112 durante la actividad.</p>
     </section>
     <noscript><p class="notice">Para abrir las lecciones y actividades, activa JavaScript. Recuerda: si alguien no responde, llama al 112 con el altavoz y sigue sus indicaciones.</p></noscript>
   </main>

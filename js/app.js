@@ -1,6 +1,7 @@
-import { lessons, practicalChecklist, scenario } from './content.js';
+import { lessons, scenario } from './content.js';
 import { createQuiz, submitAnswer, nextQuestion, quizResult } from './quiz.js';
 import { createAudio } from './audio.js';
+import { rubrics, peerResult } from './peer.js';
 
 const pages = [...document.querySelectorAll('.page')];
 const navigation = [...document.querySelectorAll('.site-header nav a')];
@@ -11,6 +12,9 @@ const quizContent = document.getElementById('quiz-content');
 let currentLesson = 0;
 let currentScenario = 'start';
 let quiz = createQuiz();
+let peerIndex = 0;
+const peerAnswers = rubrics.map(() => ({}));
+const peerContent = document.getElementById('peer-content');
 const audio = createAudio({
   button: document.getElementById('metronome'),
   heart: document.getElementById('beat-heart'),
@@ -101,19 +105,56 @@ function renderQuiz(focus = false) {
   if (focus) focusHeading(quizContent);
 }
 
-function updateChecklist() {
-  const boxes = [...document.querySelectorAll('#practice-checklist input')];
-  const count = boxes.filter(box => box.checked).length;
-  document.getElementById('checklist-status').textContent = `${count} de ${boxes.length} aspectos practicados. Revisa la calidad de la técnica con tu docente.`;
+function renderPeer(focus = false) {
+  const rubric = rubrics[peerIndex];
+  const answers = peerAnswers[peerIndex];
+  document.getElementById('peer-picker').innerHTML = rubrics.map((item, index) => `<button type="button" data-peer="${index}" aria-pressed="${index === peerIndex}">${escape(item.title)}</button>`).join('');
+  peerContent.innerHTML = `<h2>${escape(rubric.title)}</h2><p>${escape(rubric.description)}</p>
+    <form id="peer-form" novalidate>
+    <div class="peer-criteria">${rubric.criteria.map((text, index) => `<fieldset data-criterion="${index}"><legend><span class="criterion-number">${index + 1}.</span> ${escape(text)}</legend><div class="peer-options">${['Sí', 'No'].map((label, option) => `<label><input type="radio" name="criterion-${index}" value="${option === 0 ? 'yes' : 'no'}" ${answers[index] === (option === 0) ? 'checked' : ''} required><span>${label}</span></label>`).join('')}</div></fieldset>`).join('')}</div>
+    <p id="peer-progress" class="small" role="status"></p>
+    <div class="button-row"><button type="submit" class="button primary">Calcular nota</button><button type="button" class="button secondary" data-action="reset-peer">Nueva pareja / reiniciar</button></div>
+    <div id="peer-result" class="peer-result" role="status" tabindex="-1" hidden></div></form>`;
+  updatePeerProgress();
+  if (focus) focusHeading(peerContent);
 }
 
-document.getElementById('practice-checklist').innerHTML = practicalChecklist.map((text, index) => `<label><input type="checkbox" name="practice-${index}"><span>${escape(text)}</span></label>`).join('');
+function updatePeerProgress() {
+  const result = peerResult(rubrics[peerIndex].criteria, peerAnswers[peerIndex]);
+  document.getElementById('peer-progress').textContent = `${result.answered} de ${result.total} criterios valorados. Todos tienen el mismo peso.`;
+}
+
+function calculatePeer() {
+  const rubric = rubrics[peerIndex];
+  const result = peerResult(rubric.criteria, peerAnswers[peerIndex]);
+  const display = document.getElementById('peer-result');
+  for (const row of peerContent.querySelectorAll('fieldset')) {
+    const missing = result.missing.includes(Number(row.dataset.criterion));
+    row.classList.toggle('unanswered', missing);
+    for (const input of row.querySelectorAll('input')) {
+      if (missing) input.setAttribute('aria-invalid', 'true');
+      else input.removeAttribute('aria-invalid');
+    }
+  }
+  display.hidden = false;
+  if (!result.complete) {
+    display.innerHTML = `<p><strong>Faltan ${result.total - result.answered} criterios.</strong> Marca Sí o No en todos para calcular la nota.</p>`;
+    peerContent.querySelector(`fieldset[data-criterion="${result.missing[0]}"] input`).focus();
+    return;
+  }
+  display.innerHTML = `<h3>Nota final de práctica</h3><div class="result-score">${result.score.toFixed(2)} / 10</div><p>${result.achieved} de ${result.total} criterios cumplidos.</p>
+    ${result.improve.length ? `<h3>Para el siguiente intento</h3><ul class="review-list">${result.improve.map(text => `<li>${escape(text)}</li>`).join('')}</ul>` : '<p>¡Habéis cumplido todos los criterios! Cambiad los papeles y repetid la práctica.</p>'}`;
+  display.focus();
+}
 
 // Una única delegación para los controles que se renderizan dinámicamente.
 document.addEventListener('click', event => {
   const button = event.target.closest('button');
   if (!button || button.disabled) return;
-  if (button.dataset.lesson !== undefined) {
+  if (button.dataset.peer !== undefined) {
+    peerIndex = Number(button.dataset.peer);
+    renderPeer(true);
+  } else if (button.dataset.lesson !== undefined) {
     audio.stopSpeech();
     currentLesson = Number(button.dataset.lesson);
     renderLesson(true);
@@ -132,6 +173,7 @@ document.addEventListener('click', event => {
     }
   } else {
     switch (button.dataset.action) {
+      case 'reset-peer': peerAnswers[peerIndex] = {}; renderPeer(true); break;
       case 'listen': audio.speak(document.getElementById('lesson-reading').innerText, button); break;
       case 'next-lesson': audio.stopSpeech(); currentLesson += 1; renderLesson(true); break;
       case 'next-question': if (nextQuestion(quiz)) renderQuiz(true); break;
@@ -140,12 +182,22 @@ document.addEventListener('click', event => {
   }
 });
 document.getElementById('metronome').addEventListener('click', audio.toggleRhythm);
-document.getElementById('practice-checklist').addEventListener('change', updateChecklist);
+peerContent.addEventListener('change', event => {
+  const input = event.target;
+  if (!input.matches('input[type="radio"]')) return;
+  const row = input.closest('fieldset');
+  peerAnswers[peerIndex][Number(row.dataset.criterion)] = input.value === 'yes';
+  row.classList.remove('unanswered');
+  for (const option of row.querySelectorAll('input')) option.removeAttribute('aria-invalid');
+  document.getElementById('peer-result').hidden = true;
+  updatePeerProgress();
+});
+peerContent.addEventListener('submit', event => { event.preventDefault(); calculatePeer(); });
 window.addEventListener('hashchange', () => navigate());
 window.addEventListener('pagehide', audio.stopAll);
 document.addEventListener('visibilitychange', () => { if (document.hidden) audio.stopAll(); });
 renderLesson();
 renderScenario();
 renderQuiz();
-updateChecklist();
+renderPeer();
 navigate(false);
