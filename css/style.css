@@ -1303,3 +1303,22 @@ main {
   .flow-branch { border: 1px solid var(--line); border-radius: 18px; padding: 18px 12px; }
   .flow-node { padding: 16px; }
 }
+
+.flow-normal .flow-node > .flow-condition {
+  background: white;
+  color: #245d44;
+  border-radius: 30px;
+  padding: 5px 12px;
+  font-size: .75rem;
+  font-weight: 750;
+}
+.flow-trauma {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fff2df;
+  color: #644519;
+  font-size: .82rem;
+  line-height: 1.65;
+  margin: 14px 0 0;
+}
+.flow-trauma strong { display: block; }
